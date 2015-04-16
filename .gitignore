@@ -1,12 +1,69 @@
-*.class
+import java.awt.*;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.geom.Dimension2D;
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+import javax.swing.*;
 
-# Package Files #
-*.jar
-*.war
-*.ear
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+public class CarRepair extends JFrame implements ActionListener {
+	int num;
+int num2;
+	JTextField name=new JTextField(10);
+	JTextField lname=new JTextField(4);
+	JTextField ncourse=new JTextField(10);
+		JButton submit=new JButton("submit Detail");
+		JButton clear=new JButton("Clear");
+		JRadioButton radio2=new JRadioButton("clic here if home over seas");
+		JRadioButton radio1=new JRadioButton("clic here if home student");
+		JPanel p1=new JPanel();
+		
+	CarRepair(){
+		setSize(280,250);
+		//setLayout(new FlowLayout());
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+		setTitle("form1");
+	add(p1);
+	p1.setSize(new Dimension(300,200));
+	//p1.setLayout(new GridLayout(4,2));
+	p1.add(new JLabel("Enter your family name "))	;
+	p1.add(name);
+	p1.add(radio1);
+	p1.add(radio2);
+	p1.add(lname);
+	p1.add(submit);
+	p1.add(new JLabel ("The fee for this year are: "));
+	p1.add(ncourse);
+	p1.add(clear);
+	submit.addActionListener(this);
+	clear.addActionListener(this);
+		
+	}
+	
+	public static void main(String[] args) {
+		CarRepair cr=new CarRepair();
+	}
+	public void actionPerformed(ActionEvent e) {
+		
+		if(e.getSource()==submit){
+			if(this.radio1.isSelected())
+				
+			
+			 num=Integer.parseInt(this.lname.getText());
+		
+			num2=num*2;
+			this.ncourse.setText(num2+"$");
+		}
+			
+		
+		if(e.getSource()==clear){
+			name.setText("");
+			lname.setText("");
+			ncourse.setText("");
+			radio1.setSelected(false);
+	}
+
+	}
+}
